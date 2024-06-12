@@ -34,7 +34,7 @@ img {
   
 }
 
-#hide {
+.hide {
   display: flex;
   flex-direction: row;
   height: 35px;
@@ -49,13 +49,13 @@ img {
   
 }
 
-#test {
+.test {
   display: flex;
   align-items: flex-start;
 }
 
 
-#thin-el {
+.thin-el {
   display: flex;
   flex-direction: row;
   margin: 0 20px 12px 20px;
@@ -65,7 +65,7 @@ img {
 }
 
 
-#num {
+.num {
   margin: 0;
   padding: 0;
   background-color: rgba(255, 255, 255, 0.8);
@@ -81,7 +81,7 @@ img {
 
 
 
-#text-short {
+.text-short {
 
   display: flex;
   flex-direction: row;
@@ -94,7 +94,7 @@ img {
   
 }
 
-#p-short {
+.p-short {
   font-size: 20px;
   margin: 0 8px;
   flex: 1;
@@ -106,7 +106,7 @@ img {
   
 }
 
-#text-long {
+.text-long {
 
   display: flex;
   flex-direction: row;
@@ -117,7 +117,7 @@ img {
   
 }
 
-#p-long {
+.p-long {
   font-size: 20px;
   padding: 0 8px;
   border-radius: 5px;
@@ -131,4 +131,10 @@ img {
   padding-bottom: 5px;
   
   
+}
+
+
+
+button {
+  cursor: pointer;
 }
