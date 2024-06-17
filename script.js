@@ -17,7 +17,7 @@ function renderABox(number, isHidden, theText, isClear) {
 
   let htmlCode = `
     <div id="the-module-${uuid}" class="thin-el">
-      <button class="num">
+      <button id="num-btn-${uuid}" class="num">
         <h2>${number}</h2>
       </button>
       <button class="hide" id="to-put-svg-${uuid}">${theSvg}</button>
@@ -35,6 +35,8 @@ function renderABox(number, isHidden, theText, isClear) {
   let textIdVar = document.getElementById(`text-${uuid}`)
   let pIdVar = document.getElementById(`p-${uuid}`)
   let theModule = document.getElementById(`the-module-${uuid}`)
+  let numBtn = document.getElementById(`num-btn-${uuid}`)
+
 
   bu.addEventListener("click", function() {
     if (isHidden) {
@@ -71,15 +73,14 @@ function renderABox(number, isHidden, theText, isClear) {
 
 
 
-  document.addEventListener('keydown', function(event) {
+  numBtn.addEventListener('click', function() {
 
-    if (event.key == "Control" && event.key == number.toString()) {
-      pIdVar.textContent = ""
-      isClear = true
-      theModule.style.position = 'absolute'
-      theModule.style.opacity = `0`
+
+    pIdVar.textContent = ""
+    isClear = true
+    theModule.style.position = 'absolute'
+    theModule.style.opacity = `0`
       
-    }
   });
 
 
