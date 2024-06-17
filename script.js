@@ -128,6 +128,9 @@ function renderPage() {
   //        isHidden: false}
 
 
+  //USe built in chrome extension storage
+
+
 
 
   renderABox(2, false, "My name is Sachin and I like to go to the museum to play games and I am so good at everything", false)  
