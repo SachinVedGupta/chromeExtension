@@ -10,9 +10,6 @@
       "tabs"
   ],
   "background": {
-    "scripts": [
-      "popup.js"
-    ],
     "persistent": false
   },
   "content_scripts": [
