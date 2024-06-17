@@ -66,7 +66,21 @@ function renderABox(number, isHidden, theText, isClear) {
       isClear = false
       theModule.style.position = 'relative'
       theModule.style.opacity = `1`
+
+
+      //Alt + Number --> To copy into database and clipboard
       
+    }
+  });
+
+
+
+
+
+  document.addEventListener('keydown', function(event) {
+
+    if (event.altKey && event.key == number.toString() && event.ctrlKey) {
+      //Alt + Number + CTRL --> To paste the text
     }
   });
 
@@ -102,8 +116,21 @@ document.addEventLister
 
 
 function renderPage() {
-  renderABox(1, false, "My name is Sachin and I like to go to the museum to play games and I am so good at everything", false)
-  renderABox(2, false, "My name is Sachin and I like to go to the museum to play games and I am so good at everything", false)
+  renderABox(1, false, "Refer to database", false)
+  // Key is 1
+  // Value: First "false" stored in database under isHidden
+  // Value: Text thats stored/copied
+  
+  // Second "false" when rendering will be based on whether the text in databse is there or if its juist blank with ""
+
+  // Database Structure
+  // 1 --> {text: "Who am I",
+  //        isHidden: false}
+
+
+
+
+  renderABox(2, false, "My name is Sachin and I like to go to the museum to play games and I am so good at everything", false)  
   renderABox(3, false, "My name is Sachin and I like to go to the museum to play games and I am so good at everything", false)
   renderABox(4, false, "My name is Sachin and I like to go to the museum to play games and I am so good at everything", false)
   renderABox(5, false, "My name is Sachin and I like to go to the museum to play games and I am so good at everything", false)
@@ -115,3 +142,10 @@ function renderPage() {
 }
 
 renderPage()
+
+
+
+
+
+
+
