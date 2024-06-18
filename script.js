@@ -227,7 +227,7 @@ chrome.storage.sync.get(["key"]).then((result) => {
 console.log("hhhhhshshs")
 console.log(chrome.storage.sync.get(["key"]))
 
-chrome.storage.sync.get(["key"]).then((result) => {
+chrome.storage.sync.get(["1"]).then((result) => {
   console.log(result.key.text);
 });
 
@@ -236,7 +236,7 @@ chrome.storage.sync.get(["key"]).then((result) => {
 
 chrome.storage.sync.get('1', function(result) {console.log(result['1'].text)})
 
-
+console.log(typeof chrome.storage.sync.get('1', function(result) {console.log(result['1'].text)}))
 
 
 
