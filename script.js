@@ -116,7 +116,7 @@ function renderABox(number, isHidden, theText, isClear) {
     isClear = true
     theModule.style.position = 'absolute'
     theModule.style.opacity = `0`
-    chrome.storage.sync.set({ [number]: { text: `H`, ishid: true } })
+    chrome.storage.sync.set({ [number]: { text: ``, ishid: true } })
       
   });
 
@@ -157,7 +157,7 @@ chrome.storage.onChanged.addListener(() => {
 function renderPage() {
 
   for (let i = 1; i <= 9; i++) {
-    renderABox(i, false, "h, false")
+    renderABox(i, chrome.storage.sync.get(i.toString(), function(result) {console.log(result[i.toString()].ishid)}), chrome.storage.sync.get(i.toString(), function(result) {console.log(result[i.toString()].text)}), false)
   
   }
 
@@ -227,8 +227,14 @@ chrome.storage.sync.get(["key"]).then((result) => {
 console.log("hhhhhshshs")
 console.log(chrome.storage.sync.get(["key"]))
 
+chrome.storage.sync.get(["key"]).then((result) => {
+  console.log(result.key.text);
+});
 
 
+
+
+chrome.storage.sync.get('1', function(result) {console.log(result['1'].text)})
 
 
 
