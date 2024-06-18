@@ -63,6 +63,7 @@ function renderABox(number, isHidden, theText, isClear) {
       isHidden = false
       textIdVar.className = `text-long`
       pIdVar.className = `p-long`
+      chrome.storage.sync.set({ [i]: { text: `${theText}`, ishid: false } })
     }
     else {
       console.log("shown")
@@ -70,6 +71,7 @@ function renderABox(number, isHidden, theText, isClear) {
       isHidden = true
       textIdVar.className = `text-short`
       pIdVar.className = `p-short`
+      chrome.storage.sync.set({ [i]: { text: `${theText}`, ishid: true } })
     }
   })
 
@@ -84,6 +86,8 @@ function renderABox(number, isHidden, theText, isClear) {
       isClear = false
       theModule.style.position = 'relative'
       theModule.style.opacity = `1`
+      chrome.storage.sync.set({ [i]: { text: `${window.getSelection().toString()}`, ishid: false } })
+
 
 
       //Alt + Number --> To copy into database and clipboard
@@ -112,6 +116,7 @@ function renderABox(number, isHidden, theText, isClear) {
     isClear = true
     theModule.style.position = 'absolute'
     theModule.style.opacity = `0`
+    chrome.storage.sync.set({ [i]: { text: ``, ishid: true } })
       
   });
 
@@ -130,8 +135,6 @@ function renderABox(number, isHidden, theText, isClear) {
 }
 
 
-document.addEventLister
-
 
 //Set Keys in Sync Storage
 
@@ -139,14 +142,26 @@ function createDb() {
   for (let i = 1; i <= 9; i++) {
     chrome.storage.sync.set({ [i]: { text: "Select Alt+Number to Copy, and Ctrl+Alt+Number to Paste", ishid: false } })
     }
-  }
+}
 
 
-
+chrome.storage.onChanged.addListener(() => {
+  renderPage()
+});
 
 
 
 function renderPage() {
+
+  for (let i = 1; i <= 9; i++) {
+    renderABox(i)
+  
+  }
+
+
+
+  /*
+
   renderABox(1, false, "Refer to database", false)
 
   // Key is 1
@@ -175,14 +190,25 @@ function renderPage() {
   renderABox(8, false, "My name is Sachin and I like to go to the museum to play games and I am so good at everything", false)
   renderABox(9, false, "My name is Sachin and I like to go to the museum to play games and I am so good at everything", false)
 
+  */
+
 }
 
 
 
-
+//createDb()
 renderPage()
 
 
+
+
+
+
+
+
+
+
+/*
 chrome.storage.sync.set({ key: "him see do" }).then(() => {
   console.log("Value is set");
 });
@@ -191,6 +217,12 @@ chrome.storage.sync.get(["key"]).then((result) => {
   console.log("Value is " + result.key);
 });
 
+//chrome.storage.sync.get(console.log)
+*/
+
+
+console.log("hhhhhshshs")
+console.log(chrome.storage.sync.get(["key"]))
 
 
 
