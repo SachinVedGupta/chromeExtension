@@ -63,7 +63,7 @@ function renderABox(number, isHidden, theText, isClear) {
       isHidden = false
       textIdVar.className = `text-long`
       pIdVar.className = `p-long`
-      chrome.storage.sync.set({ [i]: { text: `${theText}`, ishid: false } })
+      chrome.storage.sync.set({ [number]: { text: `${theText}`, ishid: false } })
     }
     else {
       console.log("shown")
@@ -71,7 +71,7 @@ function renderABox(number, isHidden, theText, isClear) {
       isHidden = true
       textIdVar.className = `text-short`
       pIdVar.className = `p-short`
-      chrome.storage.sync.set({ [i]: { text: `${theText}`, ishid: true } })
+      chrome.storage.sync.set({ [number]: { text: `${theText}`, ishid: true } })
     }
   })
 
@@ -86,7 +86,7 @@ function renderABox(number, isHidden, theText, isClear) {
       isClear = false
       theModule.style.position = 'relative'
       theModule.style.opacity = `1`
-      chrome.storage.sync.set({ [i]: { text: `${window.getSelection().toString()}`, ishid: false } })
+      chrome.storage.sync.set({ [number]: { text: `${window.getSelection().toString()}`, ishid: false } })
 
 
 
@@ -116,7 +116,7 @@ function renderABox(number, isHidden, theText, isClear) {
     isClear = true
     theModule.style.position = 'absolute'
     theModule.style.opacity = `0`
-    chrome.storage.sync.set({ [i]: { text: ``, ishid: true } })
+    chrome.storage.sync.set({ [number]: { text: `H`, ishid: true } })
       
   });
 
@@ -146,6 +146,9 @@ function createDb() {
 
 
 chrome.storage.onChanged.addListener(() => {
+  document.getElementById("root").innerHTML = `<h1>CeeP</h1>`
+  document.getElementById("root").innerHTML += `<script src="script.js"></script>`
+
   renderPage()
 });
 
@@ -154,7 +157,7 @@ chrome.storage.onChanged.addListener(() => {
 function renderPage() {
 
   for (let i = 1; i <= 9; i++) {
-    renderABox(i)
+    renderABox(i, false, "h, false")
   
   }
 
