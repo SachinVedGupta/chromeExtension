@@ -137,11 +137,10 @@ document.addEventLister
 
 function createDb() {
   for (let i = 1; i <= 9; i++) {
-    chrome.storage.sync.set({ [i]: { text: "Select Alt+Number to Copy, and Ctrl+Alt+Number to Paste", ishid: false } }), function() {
-      console.log(`Data saved successfully with key "${i}"`)
+    chrome.storage.sync.set({ [i]: { text: "Select Alt+Number to Copy, and Ctrl+Alt+Number to Paste", ishid: false } })
     }
   }
-}
+
 
 
 
@@ -179,9 +178,20 @@ function renderPage() {
 }
 
 
-createDb()
+
 
 renderPage()
+
+
+chrome.storage.sync.set({ key: "him see do" }).then(() => {
+  console.log("Value is set");
+});
+
+chrome.storage.sync.get(["key"]).then((result) => {
+  console.log("Value is " + result.key);
+});
+
+
 
 
 
