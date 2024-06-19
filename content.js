@@ -213,7 +213,8 @@ function renderPage() {
 
 chrome.storage.onChanged.addListener(() => {
   document.getElementById("root").innerHTML = `<h1>CeeP</h1>`
-  document.getElementById("root").innerHTML += `<script src="script.js"></script>`
+  document.getElementById("root").innerHTML += `<script src="content.js"></script>`
+  document.getElementById("root").innerHTML += `<script src="background.js"></script>`
 
   renderPage()
 });
@@ -272,7 +273,7 @@ let h = 0
 chrome.storage.sync.get(["7"]).then((result) => { console.log("Value is " + result["7"]["text"]); h = result["7"]["text"] })
 console.log(h)
 
-*/
+
 
 
 console.log("JJSJSJNJKS")
@@ -293,3 +294,6 @@ function getStyle(themeInfo) {
   }
 }
 getStyle()
+
+
+*/
