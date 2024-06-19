@@ -278,10 +278,18 @@ console.log(h)
 console.log("JJSJSJNJKS")
 
 chrome.theme.getCurrent((themeInfo) => {
-  const themeColor = themeInfo.colors;
-  console.log(`Current theme colour is: ${themeColor}`);
-  // You can also access other properties like themeInfo.colors, themeInfo.images, etc.
-});
-
+  const themeColor = themeInfo.colors
+  console.log(`Current theme color is: ${themeColor}`)
+  // You can also access other properties like themeInfo.images, etc.
+})
 
 console.log("JONKHJBSAHKAHBKHBKAB")
+
+
+function getStyle(themeInfo) {
+  if (themeInfo.colors) {
+    console.log(`accent color: ${themeInfo.colors.frame}`);
+    console.log(`toolbar: ${themeInfo.colors.toolbar}`);
+  }
+}
+getStyle()
