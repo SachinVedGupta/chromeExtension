@@ -138,10 +138,11 @@ function renderABox(number, isHidden, theText, isClear) {
 
 //Set Keys in Sync Storage
 
+
 function createDb() {
   for (let i = 1; i <= 9; i++) {
     chrome.storage.sync.set({ [i]: { text: "Select Alt+Number to Copy, and Ctrl+Alt+Number to Paste", ishid: false } })
-    }
+  }
 }
 
 
@@ -155,7 +156,7 @@ function renderPage() {
     
     chrome.storage.sync.get([i.toString()]).then((result) => {
     
-      let object = result["7"]
+      let object = result[i.toString()]
       let newText = object["text"]
       let newHide = object["ishid"]
       let newIsClear = false
@@ -219,7 +220,7 @@ chrome.storage.onChanged.addListener(() => {
 
 
 //createDb()
-createDb()
+
 renderPage()
 
 
