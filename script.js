@@ -273,3 +273,15 @@ chrome.storage.sync.get(["7"]).then((result) => { console.log("Value is " + resu
 console.log(h)
 
 */
+
+
+console.log("JJSJSJNJKS")
+
+chrome.theme.getCurrent((themeInfo) => {
+  const themeColor = themeInfo.colors;
+  console.log(`Current theme colour is: ${themeColor}`);
+  // You can also access other properties like themeInfo.colors, themeInfo.images, etc.
+});
+
+
+console.log("JONKHJBSAHKAHBKHBKAB")
