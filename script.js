@@ -116,7 +116,7 @@ function renderABox(number, isHidden, theText, isClear) {
     isClear = true
     theModule.style.position = 'absolute'
     theModule.style.opacity = `0`
-    chrome.storage.sync.set({ [number]: { text: ``, ishid: true } })
+    chrome.storage.sync.set({ [number]: { text: "", ishid: true } })
       
   });
 
