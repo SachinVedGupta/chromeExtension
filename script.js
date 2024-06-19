@@ -145,19 +145,31 @@ function createDb() {
 }
 
 
-chrome.storage.onChanged.addListener(() => {
-  document.getElementById("root").innerHTML = `<h1>CeeP</h1>`
-  document.getElementById("root").innerHTML += `<script src="script.js"></script>`
-
-  renderPage()
-});
 
 
 
 function renderPage() {
 
   for (let i = 1; i <= 9; i++) {
-    renderABox(i, chrome.storage.sync.get(i.toString(), function(result) {console.log(result[i.toString()].ishid)}), chrome.storage.sync.get(i.toString(), function(result) {console.log(result[i.toString()].text)}), false)
+
+    
+    chrome.storage.sync.get([i.toString()]).then((result) => {
+    
+      let object = result["7"]
+      let newText = object["text"]
+      let newHide = object["ishid"]
+      let newIsClear = false
+      if (newText == "") {
+        newIsClear = true
+      }
+
+      console.log(object); // Move this line inside the callback
+
+      renderABox(i, newHide, newText, newIsClear)
+    
+    });
+
+
   
   }
 
@@ -198,8 +210,16 @@ function renderPage() {
 }
 
 
+chrome.storage.onChanged.addListener(() => {
+  document.getElementById("root").innerHTML = `<h1>CeeP</h1>`
+  document.getElementById("root").innerHTML += `<script src="script.js"></script>`
+
+  renderPage()
+});
+
 
 //createDb()
+createDb()
 renderPage()
 
 
@@ -224,6 +244,7 @@ chrome.storage.sync.get(["key"]).then((result) => {
 */
 
 
+/*
 console.log("hhhhhshshs")
 console.log(chrome.storage.sync.get(["key"]))
 
@@ -239,4 +260,15 @@ chrome.storage.sync.get('1', function(result) {console.log(result['1'].text)})
 console.log(typeof chrome.storage.sync.get('1', function(result) {console.log(result['1'].text)}))
 
 
+chrome.storage.sync.get('7', function(items) {
+  var key1Text = items[7]?.text || ""; // Retrieve the "text" property for key "1"
+  console.log("Value of 'text' for key '1':", key1Text);
+  return key1Text;
+});
 
+
+let h = 0
+chrome.storage.sync.get(["7"]).then((result) => { console.log("Value is " + result["7"]["text"]); h = result["7"]["text"] })
+console.log(h)
+
+*/
