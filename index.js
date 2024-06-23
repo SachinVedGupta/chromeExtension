@@ -213,8 +213,8 @@ function renderPage() {
 
 chrome.storage.onChanged.addListener(() => {
   document.getElementById("root").innerHTML = `<h1>CeeP</h1>`
+  document.getElementById("root").innerHTML += `<script src="index.js"></script>`
   document.getElementById("root").innerHTML += `<script src="content.js"></script>`
-  document.getElementById("root").innerHTML += `<script src="background.js"></script>`
 
   renderPage()
 });

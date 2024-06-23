@@ -10,7 +10,9 @@
       "tabs",
       "storage",
       "activeTab",
-      "storage"
+      "storage",
+      "scripting",
+      "http://*/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -22,19 +24,17 @@
     }
   ],
   "commands": {
-    "ruhhn-foo": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+Y",
-        "mac": "Command+Shift+Y"
-      },
-      "description": "Run \"foo\" on the current page."
+    "save" : {
+        "suggested_key": {
+             "default": "Alt+Shift+S" 
+        },
+        "description": "Save a link"
     },
-    "r-foo": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+Z",
-        "mac": "Command+Shift+Z"
-      },
-      "description": "Run \"foo\" on the current page."
+    "random": {
+        "suggested_key": {
+            "default": "Alt+Shift+L"
+        },
+        "description": "Load a random link"
     }
   }
 }
